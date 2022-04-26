@@ -1,0 +1,30 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+   http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="tableFriend" author="frmnjn">
+        <createTable tableName="friend">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="friend_primary_key" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)"/>
+            <column name="age" type="varchar(255)"/>
+            <column name="address" type="varchar(255)"/>
+            <column name="phoneNumber" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="updateTableFriend_address_length" author="frmnjn">
+        <modifyDataType tableName="friend" columnName="address" newDataType="varchar(1000)"/>
+    </changeSet>
+
+    <changeSet id="updateTableFriend_phoneNumber_name" author="frmnjn">
+        <renameColumn tableName="friend" oldColumnName="phoneNumber" newColumnName="phone_number"/>
+    </changeSet>
+
+</databaseChangeLog>
